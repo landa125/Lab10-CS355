@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address - View All</title>
+</head>
+<body>
+<h1>Addresses</h1>
+<a href="/address/add">Add New Address</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Street</th>
+        <th>Zip Code</th>
+        <th>Actions</th>
+    </tr>
+    <% for(var i = 0; i < addresses.length; i++) { %>
+    <tr>
+        <td>
+            <a href="/address/?address_id=<%= addresses[i].address_id %>">
+                <%= addresses[i].address_id %>
+            </a>
+        </td>
+
+        <td>
+            <a href="/address/?address_id=<%= addresses[i].address_id %>">
+                <%= addresses[i].street %>
+            </a>
+        </td>
+
+        <td>
+            <a href="/address/?address_id=<%= addresses[i].address_id %>">
+                <%= addresses[i].zip_code %>
+            </a>
+        </td>
+
+        <td>
+            <a href='/address/edit/?address_id=<%= addresses[i].address_id %>'>
+                Edit
+            </a>
+            <a href='/address/delete/?address_id=<%= addresses[i].address_id
+            %>'>
+                Delete
+            </a>
+
+        </td>
+    </tr>
+    <% } %>
+    </table>
+    <% if(locals.was_successful_delete) { %>
+    <div>
+    <p>You Successfully Deleted A Address!</p>
+    </div>
+    <% } %>
+    </body>
+    </html>
+

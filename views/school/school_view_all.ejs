@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School - View All</title>
+</head>
+<body>
+<h1>Schools</h1>
+<a href="/school/add">Add New School</a>
+
+<table border = "1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <% for(var i = 0; i < schools.length; i++) { %>
+    <tr>
+        <td>
+            <a href="/school/?school_id=<%= schools[i].school_id %>">
+                <%= schools[i].school_id %>
+            </a>
+        </td>
+
+        <td>
+            <a href="/school/?school_id=<%= schools[i].school_id %>">
+                <%= schools[i].school_name %>
+            </a>
+        </td>
+        <td>
+            <a href='/school/edit/?school_id=<%= schools[i].school_id
+            %>'>
+                Edit
+            </a>
+            <a href='/school/delete/?school_id=<%= schools[i].school_id
+            %>'>
+                Delete
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p>You Successfully Deleted A School!</p>
+</div>
+<% } %>
+</body>
+</html>

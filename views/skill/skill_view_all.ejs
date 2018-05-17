@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skill - View all</title>
+</head>
+<body>
+<h1>Skills</h1>
+<a href="/skill/add">Add New Skill</a>
+<table border = "1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <% for(var i = 0; i < skills.length; i++) { %>
+    <tr>
+        <td>
+            <a href="/skill/?skill_id=<%= skills[i].skill_id %>">
+                <%= skills[i].skill_id %>
+            </a>
+        </td>
+
+        <td>
+            <a href="/skill/?skill_id=<%= skills[i].skill_id %>">
+                <%= skills[i].skill_name %>
+            </a>
+        </td>
+
+        <td>
+            <a href="/skill/?skill_id=<%= skills[i].skill_id %>">
+                <%= skills[i].description %>
+            </a>
+        </td>
+        <td>
+            <a href='/skill/edit/?skill_id=<%= skills[i].skill_id %>'>
+                Edit
+            </a>
+
+            <a href='/skill/delete/?skill_id=<%= skills[i].skill_id %>'>
+                Delete
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p>You Successfully Deleted A Skill!</p>
+</div>
+<% } %>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account - Add</title>
+</head>
+<body>
+<h1>Edit The Account</h1>
+<form action="/account/update" method="get">
+    email: <input
+            id="email"
+            name="email"
+            type="text"
+            value="<%= account.email%>"
+
+    />
+
+    first_name: <input
+            id="first_name"
+            name="first_name"
+            type="text"
+            value="<%= account.first_name%>"
+
+    />
+
+    last_name: <input
+            id="last_name"
+            name="last_name"
+            type="text"
+            value="<%= account.last_name%>"
+
+    />
+
+
+
+    <input type="hidden"
+           id="account_id"
+           name="account_id"
+           value="<%= account.account_id %>"
+    />
+
+    <br />
+    <input type="submit" />
+
+
+
+</form>
+
+</body>
+</html>
